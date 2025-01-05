@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DiscountCodeService/.env
+/DiscountCodeService/bin/Debug/net8.0
+/.vs
+/packages
+/DiscountCodeService/obj
