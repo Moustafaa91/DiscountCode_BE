@@ -1,4 +1,5 @@
-﻿using DiscountCodeService.Services;
+﻿using DiscountCodeService.Models;
+using DiscountCodeService.Services;
 using DiscountCodeService.Utilities;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace DiscountCodeService.Hubs
         // Just for checking backend is working.
         public async Task<string> Ping()
         {
-            Console.WriteLine($"Ping method invoked by client: {Context.ConnectionId}");
+            await _logger.LogInfo($"Ping method invoked by client: {Context?.ConnectionId}");
             return "Hello, world! Backend is up and running.";
         }
 
@@ -37,7 +38,6 @@ namespace DiscountCodeService.Hubs
             catch (Exception ex)
             {
                 await Clients.Caller.SendAsync("ReceiveGeneratedCodesResult", false);
-                Console.WriteLine($"Error: {ex.Message}");
                 await _logger.LogError("Error in GenerateCodes", ex);
             }
 
@@ -63,6 +63,18 @@ namespace DiscountCodeService.Hubs
                 await Clients.Caller.SendAsync("ReceiveCodeUsageResult", false);
                 await _logger.LogError("Error in UseCode", ex);
             }
+        }
+
+        public async Task<List<DiscountCode>> GetUsedCodes()
+        {
+            var usedCodes = await _discountService.GetUsedCodesAsync();
+            return usedCodes;
+        }
+
+        public async Task<List<DiscountCode>> GetUnusedCodes()
+        {
+            var unusedCodes = await _discountService.GetUnusedCodesAsync();
+            return unusedCodes;
         }
 
     }

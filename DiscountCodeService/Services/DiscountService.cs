@@ -99,6 +99,11 @@ namespace DiscountCodeService.Services
         {
             return await _discountCodes.Find(dc => !dc.IsUsed).ToListAsync();
         }
+
+        public async Task<List<DiscountCode>> GetUsedCodesAsync()
+        {
+            return await _discountCodes.Find(dc => dc.IsUsed).ToListAsync();
+        }
     }
 
 }
