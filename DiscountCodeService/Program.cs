@@ -36,16 +36,26 @@ builder.Services.AddSingleton<DiscountService>(provider =>
     return new DiscountService(context.Database, logger);
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 // Add SignalR
 builder.Services.AddSignalR();
 
+
 var app = builder.Build();
 
-app.UseCors(policy =>
-    policy.AllowAnyHeader()
-          .AllowAnyMethod()
-          .AllowAnyOrigin()
-);
+app.MapGet("/", () => "Welcome to the Discount Code Service!");
+
+
+app.UseCors("AllowAll");
 
 // Map the SignalR Hub
 app.MapHub<DiscountHub>("/discountHub");

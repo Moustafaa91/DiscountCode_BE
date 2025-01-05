@@ -12,6 +12,7 @@ namespace DiscountCodeService.Hubs
 
         public DiscountHub(DiscountService discountService, Logger logger)
         {
+            Console.WriteLine("DiscountHub instantiated.");
             _discountService = discountService;
             _logger = logger;
         }
@@ -19,7 +20,7 @@ namespace DiscountCodeService.Hubs
         // Just for checking backend is working.
         public async Task<string> Ping()
         {
-            await _logger.LogInfo("Ping method called");
+            Console.WriteLine($"Ping method invoked by client: {Context.ConnectionId}");
             return "Hello, world! Backend is up and running.";
         }
 
