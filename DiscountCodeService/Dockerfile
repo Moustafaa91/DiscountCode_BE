@@ -9,8 +9,8 @@ RUN dotnet restore
 # Publish the application
 RUN dotnet publish -c Release -o out
 
-# Use the official .NET 6 runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+# Use the official .NET 8 runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
 
