@@ -26,7 +26,7 @@ namespace DiscountCodeService.Hubs
         }
 
 
-        public async Task GenerateCodes(int count, byte length)
+        public async Task GenerateCodes(ushort count, byte length)
         {
             try
             {

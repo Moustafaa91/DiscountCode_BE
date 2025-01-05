@@ -22,7 +22,7 @@ namespace DiscountCodeService.Services
         }
 
         // Generate codes and save them to the database
-        public async Task<bool> GenerateCodesAsync(int count, byte length, int discountPercentage)
+        public async Task<bool> GenerateCodesAsync(ushort count, byte length, int discountPercentage)
         {
             if (count < 1 || count > 2000)
             {
