@@ -38,13 +38,17 @@ builder.Services.AddSingleton<DiscountService>(provider =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
+    options.AddPolicy("AllowSpecific", builder =>
     {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+        builder.WithOrigins(
+            "http://localhost:3000" 
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
     });
 });
+
 
 // Add SignalR
 builder.Services.AddSignalR();
