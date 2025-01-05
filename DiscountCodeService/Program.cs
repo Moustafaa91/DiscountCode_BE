@@ -41,6 +41,12 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
+app.UseCors(policy =>
+    policy.AllowAnyHeader()
+          .AllowAnyMethod()
+          .AllowAnyOrigin()
+);
+
 // Map the SignalR Hub
 app.MapHub<DiscountHub>("/discountHub");
 
