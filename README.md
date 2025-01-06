@@ -95,6 +95,9 @@ The application is currently hosted on Render:
 A console-based client application to interact with this backend is available at:
 [SignalR Console Client](https://github.com/Moustafaa91/DiscountCode_ConsoleApp)
 
-## Author
-Moustafa A. - [GitHub Profile](https://github.com/Moustafaa91)
+## Contributions
+
+Contributions are welcome! Feel free to fork this repository and submit pull requests for any improvements or bug fixes.
+
+
 
