@@ -95,9 +95,6 @@ The application is currently hosted on Render:
 A console-based client application to interact with this backend is available at:
 [SignalR Console Client](https://github.com/Moustafaa91/DiscountCode_ConsoleApp)
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
 ## Author
 Moustafa A. - [GitHub Profile](https://github.com/Moustafaa91)
 
