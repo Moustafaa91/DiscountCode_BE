@@ -88,7 +88,7 @@ namespace DiscountCodeService.Services
                 .Set(dc => dc.UsedAt, DateTime.UtcNow);
 
             var result = await _discountCodes.UpdateOneAsync(
-                dc => dc.Code == code && !dc.IsUsed, // Filter: code exists and is not already used
+                dc => dc.Code == code && !dc.IsUsed,
                 update
             );
 
