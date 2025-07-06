@@ -6,7 +6,7 @@ A corresponding client application is available at [SignalR Console Client](http
 
 ## Features
 - **GenerateCodes**: Create unique discount codes with a specified count and length.
-- **UseCode**: Mark a discount code as used.
+- **UseCode**: Mark discount code as used.
 - **GetUsedCodes**: Retrieve a list of used discount codes.
 - **GetUnusedCodes**: Retrieve a list of unused discount codes.
 - **Ping**: Test the connectivity to the WebSocket hub.
